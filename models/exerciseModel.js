@@ -29,7 +29,6 @@ const ExerciseSchema = new Schema(
         },
 
         // We will not require exercises that are specific to only cardio or resistance
-
         weight: {
           type: Number,
         },
@@ -53,7 +52,6 @@ const ExerciseSchema = new Schema(
 );
 
 // This gives us the total duration of our exercises for each workout
-
 ExerciseSchema.virtual("totalDuration").get(function () {
   return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;
