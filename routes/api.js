@@ -39,7 +39,9 @@ router.post("/api/workouts", (req, res) => {
 
 // Getting all of our workouts within range, for the stats page.
 router.get("/api/workouts/range", (req, res) => {
-  Workout.find()
+  Workout.find({})
+    .sort({ day: -1 })
+    .limit(7)
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
