@@ -4,7 +4,9 @@ const { Workout } = require("../models");
 
 // Fetching all of our workouts
 router.get("/api/workouts", (req, res) => {
-  Workout.find()
+  Workout.find({
+    exercises: [],
+  })
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
